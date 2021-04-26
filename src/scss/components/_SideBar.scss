@@ -1,0 +1,24 @@
+.sidebar {
+  width: 300px;
+  height: 100vh;
+  overflow-y: auto;
+  background: $background-color;
+  border-right: 3px solid $primary-color;
+
+  &-banner {
+    display: flex;
+    border-bottom: 3px solid $primary-color;
+  }
+
+  &-title {
+    @include set-background($primary-color);
+    padding: 20px;
+    font-size: 1.4rem;
+  }
+
+  &-heading {
+    flex: 1;
+    align-self: center;
+    text-align: center;
+  }
+}

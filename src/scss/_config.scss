@@ -1,0 +1,20 @@
+$text-color-dark: #fff;
+$text-color-light: #222;
+$primary-color: hsl(200, 75%, 70%);
+$secondary-color: hsl(160, 50%, 50%);
+$background-color: hsl(200, 20%, 95%);
+
+// Set text color based on bg
+@function set-text-color($color) {
+  @if(lightness($color) > 50) {
+    @return $text-color-light;
+  } @else {
+    @return $text-color-dark;
+  }
+}
+
+// Set background & text color
+@mixin set-background($color) {
+  background-color: $color;
+  color: set-text-color($color);
+}

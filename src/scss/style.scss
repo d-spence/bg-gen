@@ -1,0 +1,25 @@
+@import 'config';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background: linear-gradient(45deg, #07e7fb, #1f9e69); */
+  background-color: #fff;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr auto;
+}
+
+// Import component styles
+@import 'components/SideBar';
+@import 'components/GenSettings';
+
+// Other imports
+@import 'utilities';

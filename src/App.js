@@ -1,5 +1,3 @@
-import './App.css';
-
 // Import components
 import SideBar from './components/SideBar';
 

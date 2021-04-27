@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography';
 import GenSettings from './GenSettings';
 
-const SideBar = ({ title, settings, setSettings }) => {
+const SideBar = ({ title, settings, setSettings, setGradBg }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-banner">
@@ -13,6 +13,7 @@ const SideBar = ({ title, settings, setSettings }) => {
       <GenSettings
         settings={settings}
         setSettings={setSettings}
+        setGradBg={setGradBg}
       />
     </div>
   )

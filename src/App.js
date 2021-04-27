@@ -5,24 +5,34 @@ import { createColor } from 'material-ui-color';
 import SideBar from './components/SideBar';
 import GenDisplayArea from './components/GenDisplayArea';
 
+// Import utilities
+import { createCSSGradient } from './utilities';
+
+const initialColors = ['#000000', '#ffffff'];
 const initialSettings = {
-  primaryColor: createColor('#000000'),
-  secondaryColor: createColor('#ffffff'),
+  primaryColor: createColor(initialColors[0]),
+  secondaryColor: createColor(initialColors[1]),
   gradAngle: 90,
   imageWidth: 800,
   imageHeight: 600,
 };
+const initialGradBg = createCSSGradient(initialColors[0], initialColors[1], initialSettings.gradAngle);
 
 const App = () => {
   const [settings, setSettings] = useState(initialSettings);
+  const [gradBg, setGradBg] = useState(initialGradBg);
 
   return (
     <div className="App">
       <SideBar
         settings={settings}
         setSettings={setSettings}
+        setGradBg={setGradBg}
       />
-      <GenDisplayArea />
+      <GenDisplayArea
+        settings={settings}
+        gradBg={gradBg}
+      />
     </div>
   );
 }

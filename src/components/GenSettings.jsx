@@ -3,12 +3,20 @@ import PropTypes from 'prop-types'
 import TextField from '@material-ui/core/TextField';
 import Slider from '@material-ui/core/Slider';
 import { ColorPicker, createColor } from 'material-ui-color';
+import { createCSSGradient } from '../utilities';
 
-const GenSettings = ({ settings, setSettings }) => {
+const GenSettings = ({ settings, setSettings, setGradBg }) => {
   const handleChange = (value) => {
     const newSettings = {...settings, ...value};
-    console.log({newSettings})
+    // console.log(newSettings)
+    const newGradientBg = createCSSGradient(
+      newSettings.primaryColor.raw,
+      newSettings.secondaryColor.raw,
+      newSettings.gradAngle
+    );
+
     setSettings(newSettings);
+    setGradBg(newGradientBg);
   }
 
   return (
@@ -17,14 +25,15 @@ const GenSettings = ({ settings, setSettings }) => {
         id="primary-color"
         value={settings.primaryColor}
         onChange={e => {
-          handleChange({primaryColor: createColor(e.css.backgroundColor)})
+          // console.log(e);
+          handleChange({primaryColor: createColor(`#${e.hex}`)});
         }}
       />
       <ColorPicker
         id="secondary-color"
         value={settings.secondaryColor}
         onChange={e => {
-          handleChange({secondaryColor: createColor(e.css.backgroundColor)})
+          handleChange({secondaryColor: createColor(e.css.backgroundColor)});
         }}
       />
       <Slider

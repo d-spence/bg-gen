@@ -1,0 +1,22 @@
+.gen-display {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+  overflow-y: auto;
+
+  &-body {
+    flex: 1;
+  }
+
+  &-footer {
+    @include set-background($primary-color);
+    display: flex;
+    align-items: center;
+    padding: 15px;
+
+    span {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

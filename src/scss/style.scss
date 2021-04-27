@@ -8,18 +8,19 @@
 
 body {
   /* background: linear-gradient(45deg, #07e7fb, #1f9e69); */
-  background-color: #fff;
+  background: linear-gradient(90deg, $primary-color, $secondary-color);
 }
 
 .App {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: $sidebar-width 1fr;
 }
 
 // Import component styles
 @import 'components/SideBar';
 @import 'components/GenSettings';
+@import 'components/GenDisplayArea';
 
 // Other imports
 @import 'utilities';

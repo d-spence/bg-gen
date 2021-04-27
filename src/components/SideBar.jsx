@@ -1,17 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Typography from '@material-ui/core/Typography';
 import GenSettings from './GenSettings';
 
-const SideBar = ({ title }) => {
+const SideBar = ({ title, settings, setSettings }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-banner">
         <Typography className="sidebar-title">BG-GEN</Typography>
         <Typography className="sidebar-heading">{title}</Typography>
       </div>
-      <GenSettings />
+      <GenSettings
+        settings={settings}
+        setSettings={setSettings}
+      />
     </div>
   )
 }
@@ -22,6 +24,8 @@ SideBar.defaultProps = {
 
 SideBar.propTypes = {
   title: PropTypes.string,
+  settings: PropTypes.object,
+  setSettings: PropTypes.func,
 }
 
 export default SideBar

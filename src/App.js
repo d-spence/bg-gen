@@ -12,7 +12,7 @@ const App = () => {
   const [settings, setSettings] = useState(initialSettings);
   const [gradBg, setGradBg] = useState(initialGradBg);
   const [alertMsg, setAlertMsg] = useState('testing');
-  const [showAlertMsg, setShowAlertMsg] = useState(true);
+  const [showAlertMsg, setShowAlertMsg] = useState(false);
 
   const handleAlertMsg = (msg) => {
     // Set new alert msg and show the alert

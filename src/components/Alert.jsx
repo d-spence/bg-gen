@@ -1,14 +1,23 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
 import { MdClose as CloseIcon } from 'react-icons/md';
 
+const useStyles = makeStyles({
+  root: {
+    backgroundColor: 'hsl(200, 75%, 50%)',
+    color: 'white',
+  },
+  message: {
+    marginLeft: 'auto',
+    fontWeight: 'bold',
+  }
+})
+
 const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
-  useEffect(() => {
-    // Show the alert message if alertMsg state is updated
-    setShowAlertMsg(true);
-  }, [alertMsg, setShowAlertMsg]);
+  const classes = useStyles();
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') return;
@@ -16,10 +25,16 @@ const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
   }
 
   return (
-    <div className="alert-msg">
+    <div>
       <Snackbar
+        ContentProps={{
+          classes: {
+            root: classes.root,
+            message: classes.message,
+          }
+        }}
         open={showAlertMsg}
-        autoHideDuration={6000}
+        autoHideDuration={7000}
         onClose={handleClose}
         message={alertMsg}
         anchorOrigin={{
@@ -40,6 +55,8 @@ const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
 
 Alert.propTypes = {
   alertMsg: PropTypes.string,
+  showAlertMsg: PropTypes.func,
+  setShowAlertMsg: PropTypes.func,
 }
 
 export default Alert

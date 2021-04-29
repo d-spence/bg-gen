@@ -13,11 +13,17 @@ const App = () => {
   const [gradBg, setGradBg] = useState(initialGradBg);
   const [alertMsg, setAlertMsg] = useState('testing');
   const [showAlertMsg, setShowAlertMsg] = useState(false);
+  const [transition, setTransition] = useState(true);
 
   const handleAlertMsg = (msg) => {
     // Set new alert msg and show the alert
     setAlertMsg(msg);
     setShowAlertMsg(true);
+  }
+
+  const handleTransition = () => {
+    setTransition(false);
+    setTimeout(() => setTransition(true), 400);
   }
 
   return (
@@ -28,10 +34,12 @@ const App = () => {
         gradBg={gradBg}
         setGradBg={setGradBg}
         handleAlertMsg={handleAlertMsg}
+        handleTransition={handleTransition}
       />
       <GenDisplayArea
         settings={settings}
         gradBg={gradBg}
+        transition={transition}
       />
       <Alert 
         alertMsg={alertMsg}

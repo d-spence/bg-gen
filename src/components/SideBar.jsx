@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography';
 import GenSettings from './GenSettings';
 
-const SideBar = ({ settings, setSettings, gradBg, setGradBg, handleAlertMsg }) => {
+const SideBar = ({ settings, setSettings, gradBg, setGradBg,
+                   handleAlertMsg, handleTransition }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-banner">
@@ -16,6 +17,7 @@ const SideBar = ({ settings, setSettings, gradBg, setGradBg, handleAlertMsg }) =
         gradBg={gradBg}
         setGradBg={setGradBg}
         handleAlertMsg={handleAlertMsg}
+        handleTransition={handleTransition}
       />
     </div>
   )

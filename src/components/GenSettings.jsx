@@ -10,7 +10,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { randomHexValue, createCSSGradient } from '../utilities';
 import { initialSettings } from '../config';
 
-const GenSettings = ({ settings, setSettings, gradBg, setGradBg, handleAlertMsg }) => {
+const GenSettings = ({ settings, setSettings, gradBg, setGradBg, 
+                       handleAlertMsg, handleTransition }) => {
   const handleChange = (value) => {
     const newSettings = {...settings, ...value};
     const newGradientBg = createCSSGradient(
@@ -27,19 +28,28 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg, handleAlertMsg 
   const randomizeColors = () => {
     const primaryColor = createColor(randomHexValue());
     const secondaryColor = createColor(randomHexValue());
-    handleChange({primaryColor, secondaryColor});
+    handleTransition();
+    setTimeout(() => {
+      handleChange({primaryColor, secondaryColor});
+    }, 200);
   }
 
   const resetColors = () => {
     const { primaryColor, secondaryColor } = initialSettings;
-    handleChange({primaryColor, secondaryColor});
-    handleAlertMsg('Colors were reset');
+    handleTransition();
+    setTimeout(() => {
+      handleChange({primaryColor, secondaryColor});
+      handleAlertMsg('Colors reset');
+    }, 200);
   }
 
   const resetImageSize = () => {
     const { imageWidth, imageHeight } = initialSettings;
-    handleChange({imageWidth, imageHeight});
-    handleAlertMsg('Image size reset');
+    handleTransition();
+    setTimeout(() => {
+      handleChange({imageWidth, imageHeight});
+      handleAlertMsg('Image size reset');
+    }, 200);
   }
 
   return (

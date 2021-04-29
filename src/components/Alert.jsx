@@ -34,7 +34,7 @@ const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
           }
         }}
         open={showAlertMsg}
-        autoHideDuration={7000}
+        autoHideDuration={5000}
         onClose={handleClose}
         message={alertMsg}
         anchorOrigin={{
@@ -43,7 +43,7 @@ const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
         }}
         action={
           <React.Fragment>
-            <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+            <IconButton aria-label="close" color="inherit" onClick={handleClose}>
               <CloseIcon fontSize="small" />
             </IconButton>
           </React.Fragment>

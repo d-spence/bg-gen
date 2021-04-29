@@ -6,8 +6,8 @@ export const initialColors = [randomHexValue(), randomHexValue()];
 export const initialSettings = {
   primaryColor: createColor(initialColors[0]),
   secondaryColor: createColor(initialColors[1]),
-  gradAngle: 90,
-  imageWidth: 800,
+  gradAngle: 120,
+  imageWidth: 600,
   imageHeight: 600,
 };
 

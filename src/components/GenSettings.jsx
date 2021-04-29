@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
+import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ColorPicker, createColor } from 'material-ui-color';
 import { randomHexValue, createCSSGradient } from '../utilities';
 import { initialSettings } from '../config';
@@ -20,6 +21,17 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
     console.log({newSettings})
     setSettings(newSettings);
     setGradBg(newGradientBg);
+  }
+
+  const randomizeColors = () => {
+    const primaryColor = createColor(randomHexValue());
+    const secondaryColor = createColor(randomHexValue());
+    handleChange({primaryColor, secondaryColor});
+  }
+
+  const resetColors = () => {
+    const { primaryColor, secondaryColor } = initialSettings;
+    handleChange({primaryColor, secondaryColor});
   }
 
   const resetImageSize = () => {
@@ -44,6 +56,10 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
           handleChange({secondaryColor: createColor(`#${e.hex}`)});
         }}
       />
+      <ButtonGroup fullWidth variant="text">
+        <Button onClick={randomizeColors}>Random</Button>
+        <Button onClick={resetColors}>Reset</Button>
+      </ButtonGroup>
       <Typography className="setting-label" variant="h6">Angle</Typography>
       <Slider
         id="grad-angle"

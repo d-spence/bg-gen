@@ -18,4 +18,4 @@ const GenDisplayArea = ({ settings, gradBg }) => {
   )
 }
 
-export default GenDisplayArea
+export default GenDisplayArea;

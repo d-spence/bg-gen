@@ -10,7 +10,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { randomHexValue, createCSSGradient } from '../utilities';
 import { initialSettings } from '../config';
 
-const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
+const GenSettings = ({ settings, setSettings, gradBg, setGradBg, handleAlertMsg }) => {
   const handleChange = (value) => {
     const newSettings = {...settings, ...value};
     const newGradientBg = createCSSGradient(
@@ -33,11 +33,13 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
   const resetColors = () => {
     const { primaryColor, secondaryColor } = initialSettings;
     handleChange({primaryColor, secondaryColor});
+    handleAlertMsg('Colors were reset');
   }
 
   const resetImageSize = () => {
     const { imageWidth, imageHeight } = initialSettings;
     handleChange({imageWidth, imageHeight});
+    handleAlertMsg('Image size reset');
   }
 
   return (
@@ -64,7 +66,7 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
       <Typography className="setting-label" variant="h6">Angle</Typography>
       <Slider
         id="grad-angle"
-        defaultValue={settings.gradAngle}
+        value={settings.gradAngle}
         aria-labelledby="gradient-angle"
         step={15}
         min={0}
@@ -91,9 +93,11 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
       <TextField
         disabled
         value={gradBg}
-        defaultValue={gradBg}
       />
-      <CopyToClipboard text={gradBg}>
+      <CopyToClipboard
+        text={gradBg}
+        onCopy={() => handleAlertMsg('CSS copied to clipboard!')}
+      >
         <Button>Copy</Button>
       </CopyToClipboard>
     </form>

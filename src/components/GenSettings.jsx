@@ -6,6 +6,7 @@ import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import { ColorPicker, createColor } from 'material-ui-color';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { randomHexValue, createCSSGradient } from '../utilities';
 import { initialSettings } from '../config';
 
@@ -92,6 +93,9 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
         value={gradBg}
         defaultValue={gradBg}
       />
+      <CopyToClipboard text={gradBg}>
+        <Button>Copy</Button>
+      </CopyToClipboard>
     </form>
   )
 }
@@ -99,6 +103,8 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
 GenSettings.propTypes = {
   settings: PropTypes.object,
   setSettings: PropTypes.func,
+  gradBg: PropTypes.string,
+  setGradBg: PropTypes.func,
 }
 
 export default GenSettings

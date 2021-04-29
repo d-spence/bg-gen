@@ -17,7 +17,6 @@ const GenImage = (props) => {
     <div className="gen-image">
       <div className={classes.genImageMain}></div>
     </div>
-    
   )
 }
 

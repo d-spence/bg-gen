@@ -10,13 +10,13 @@ import { createCSSGradient } from '../utilities';
 const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
   const handleChange = (value) => {
     const newSettings = {...settings, ...value};
-    // console.log(newSettings)
     const newGradientBg = createCSSGradient(
       newSettings.primaryColor.raw,
       newSettings.secondaryColor.raw,
       newSettings.gradAngle
     );
 
+    console.log({newSettings, newGradientBg})
     setSettings(newSettings);
     setGradBg(newGradientBg);
   }
@@ -49,22 +49,22 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
         max={345}
         valueLabelDisplay="auto"
         valueLabelFormat={val => val + '°'}
-        onChange={(_, val) => {
-          console.log(val);
-          handleChange({gradAngle: val})
-        }}
+        onChange={(_, val) => handleChange({gradAngle: val})}
       />
       <Typography className="setting-label" variant="h6">Size</Typography>
       <TextField
         id="img-width"
         label="Image Width"
         defaultValue={settings.imageWidth}
+        onChange={e => handleChange({imageWidth: Number(e.target.value)})}
       />
       <TextField
         id="img-height"
         label="Image Height"
         defaultValue={settings.imageHeight}
+        onChange={e => handleChange({imageHeight: Number(e.target.value)})}
       />
+      {/* <Button onChange={} */}
       <Typography className="setting-label" variant="h6">CSS</Typography>
       <TextField
         disabled

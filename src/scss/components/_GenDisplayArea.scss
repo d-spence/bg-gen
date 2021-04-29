@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+    overflow: hidden;
   }
 
   &-footer {
@@ -22,11 +23,4 @@
       text-align: center;
     }
   }
-}
-
-.css-label {
-  width: 100%;
-  font-size: 2rem;
-  align-self: auto;
-  justify-self: stretch;
 }

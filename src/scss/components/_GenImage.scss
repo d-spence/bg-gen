@@ -1,6 +1,7 @@
 .gen-image {
-  min-width: 25%;
-  min-height: 25%;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
   background-color: $background-color;
   border: 1px solid #333;
   margin: 20px;

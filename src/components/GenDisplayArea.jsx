@@ -12,7 +12,7 @@ const GenDisplayArea = ({ settings, gradBg }) => {
         />
       </div>
       <footer className="gen-display-footer">
-        <span>Copyright 2020, Dan Spencer</span>
+        <span>© 2020, Dan Spencer</span>
       </footer>
     </div>
   )

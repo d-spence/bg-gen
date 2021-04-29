@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography';
 import GenSettings from './GenSettings';
+import SaveImage from'./SaveImage';
 
 const SideBar = ({ settings, setSettings, gradBg, setGradBg,
-                   handleAlertMsg, handleTransition }) => {
+                   handleAlertMsg, handleTransition, imageRef }) => {
   return (
     <div className="sidebar">
       <div className="sidebar-banner">
@@ -19,6 +20,10 @@ const SideBar = ({ settings, setSettings, gradBg, setGradBg,
         handleAlertMsg={handleAlertMsg}
         handleTransition={handleTransition}
       />
+      <SaveImage
+        settings={settings}
+        imageRef={imageRef}
+      />
     </div>
   )
 }
@@ -28,7 +33,7 @@ SideBar.propTypes = {
   settings: PropTypes.object,
   gradBg: PropTypes.string,
   setSettings: PropTypes.func,
-  handleAlertMsg: PropTypes.bool,
+  handleAlertMsg: PropTypes.func,
 }
 
 export default SideBar

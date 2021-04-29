@@ -1,8 +1,7 @@
-import { Typography } from '@material-ui/core';
 import React from 'react';
 import GenImage from './GenImage';
 
-const GenDisplayArea = ({ settings, gradBg, transition }) => {
+const GenDisplayArea = ({ settings, gradBg, transition, imageRef }) => {
   return (
     <div className="gen-display">
       <div className="gen-display-body">
@@ -10,6 +9,7 @@ const GenDisplayArea = ({ settings, gradBg, transition }) => {
           settings={settings}
           gradBg={gradBg}
           transition={transition}
+          imageRef={imageRef}
         />
       </div>
       <footer className="gen-display-footer">

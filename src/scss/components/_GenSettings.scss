@@ -1,8 +1,12 @@
 .gen-settings {
   display: grid;
-  padding: 15px;
+  padding: 0px 15px;
+}
 
-  .setting-label {
-    padding-top: 15px;
-  }
+.setting-label {
+  padding-top: 15px;
+}
+
+.setting-button {
+  margin: 10px 0px;
 }

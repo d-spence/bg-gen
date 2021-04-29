@@ -55,7 +55,7 @@ const Alert = ({ alertMsg, showAlertMsg, setShowAlertMsg }) => {
 
 Alert.propTypes = {
   alertMsg: PropTypes.string,
-  showAlertMsg: PropTypes.func,
+  showAlertMsg: PropTypes.bool,
   setShowAlertMsg: PropTypes.func,
 }
 

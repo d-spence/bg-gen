@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
+import Button from '@material-ui/core/Button';
 import { ColorPicker, createColor } from 'material-ui-color';
 import { createCSSGradient } from '../utilities';
 
-const GenSettings = ({ settings, setSettings, setGradBg }) => {
+const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
   const handleChange = (value) => {
     const newSettings = {...settings, ...value};
     // console.log(newSettings)
@@ -21,6 +23,7 @@ const GenSettings = ({ settings, setSettings, setGradBg }) => {
 
   return (
     <form className="gen-settings">
+      <Typography className="setting-label" variant="h6">Colors</Typography>
       <ColorPicker 
         id="primary-color"
         value={settings.primaryColor}
@@ -36,6 +39,7 @@ const GenSettings = ({ settings, setSettings, setGradBg }) => {
           handleChange({secondaryColor: createColor(e.css.backgroundColor)});
         }}
       />
+      <Typography className="setting-label" variant="h6">Angle</Typography>
       <Slider
         id="grad-angle"
         defaultValue={settings.gradAngle}
@@ -45,7 +49,12 @@ const GenSettings = ({ settings, setSettings, setGradBg }) => {
         max={345}
         valueLabelDisplay="auto"
         valueLabelFormat={val => val + '°'}
+        onChange={(_, val) => {
+          console.log(val);
+          handleChange({gradAngle: val})
+        }}
       />
+      <Typography className="setting-label" variant="h6">Size</Typography>
       <TextField
         id="img-width"
         label="Image Width"
@@ -55,6 +64,12 @@ const GenSettings = ({ settings, setSettings, setGradBg }) => {
         id="img-height"
         label="Image Height"
         defaultValue={settings.imageHeight}
+      />
+      <Typography className="setting-label" variant="h6">CSS</Typography>
+      <TextField
+        disabled
+        value={gradBg}
+        defaultValue={gradBg}
       />
     </form>
   )

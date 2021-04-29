@@ -6,9 +6,9 @@ import SideBar from './components/SideBar';
 import GenDisplayArea from './components/GenDisplayArea';
 
 // Import utilities
-import { createCSSGradient } from './utilities';
+import { randomHexValue, createCSSGradient } from './utilities';
 
-const initialColors = ['#000000', '#ffffff'];
+const initialColors = [randomHexValue(), randomHexValue()];
 const initialSettings = {
   primaryColor: createColor(initialColors[0]),
   secondaryColor: createColor(initialColors[1]),
@@ -27,6 +27,7 @@ const App = () => {
       <SideBar
         settings={settings}
         setSettings={setSettings}
+        gradBg={gradBg}
         setGradBg={setGradBg}
       />
       <GenDisplayArea

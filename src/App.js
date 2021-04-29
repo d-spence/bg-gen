@@ -1,22 +1,11 @@
 import React, { useState } from 'react';
-import { createColor } from 'material-ui-color';
 
 // Import components
 import SideBar from './components/SideBar';
 import GenDisplayArea from './components/GenDisplayArea';
 
-// Import utilities
-import { randomHexValue, createCSSGradient } from './utilities';
-
-const initialColors = [randomHexValue(), randomHexValue()];
-const initialSettings = {
-  primaryColor: createColor(initialColors[0]),
-  secondaryColor: createColor(initialColors[1]),
-  gradAngle: 90,
-  imageWidth: 800,
-  imageHeight: 600,
-};
-const initialGradBg = createCSSGradient(initialColors[0], initialColors[1], initialSettings.gradAngle);
+// Import config vars
+import { initialSettings, initialGradBg } from './config';
 
 const App = () => {
   const [settings, setSettings] = useState(initialSettings);

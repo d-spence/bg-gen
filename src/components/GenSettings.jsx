@@ -5,7 +5,8 @@ import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
 import Button from '@material-ui/core/Button';
 import { ColorPicker, createColor } from 'material-ui-color';
-import { createCSSGradient } from '../utilities';
+import { randomHexValue, createCSSGradient } from '../utilities';
+import { initialSettings } from '../config';
 
 const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
   const handleChange = (value) => {
@@ -16,9 +17,14 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
       newSettings.gradAngle
     );
 
-    console.log({newSettings, newGradientBg})
+    console.log({newSettings})
     setSettings(newSettings);
     setGradBg(newGradientBg);
+  }
+
+  const resetImageSize = () => {
+    const { imageWidth, imageHeight } = initialSettings;
+    handleChange({imageWidth, imageHeight});
   }
 
   return (
@@ -28,7 +34,6 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
         id="primary-color"
         value={settings.primaryColor}
         onChange={e => {
-          // console.log(e);
           handleChange({primaryColor: createColor(`#${e.hex}`)});
         }}
       />
@@ -36,7 +41,7 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
         id="secondary-color"
         value={settings.secondaryColor}
         onChange={e => {
-          handleChange({secondaryColor: createColor(e.css.backgroundColor)});
+          handleChange({secondaryColor: createColor(`#${e.hex}`)});
         }}
       />
       <Typography className="setting-label" variant="h6">Angle</Typography>
@@ -55,16 +60,16 @@ const GenSettings = ({ settings, setSettings, gradBg, setGradBg }) => {
       <TextField
         id="img-width"
         label="Image Width"
-        defaultValue={settings.imageWidth}
+        value={settings.imageWidth}
         onChange={e => handleChange({imageWidth: Number(e.target.value)})}
       />
       <TextField
         id="img-height"
         label="Image Height"
-        defaultValue={settings.imageHeight}
+        value={settings.imageHeight}
         onChange={e => handleChange({imageHeight: Number(e.target.value)})}
       />
-      {/* <Button onChange={} */}
+      <Button onClick={resetImageSize}>Reset</Button>
       <Typography className="setting-label" variant="h6">CSS</Typography>
       <TextField
         disabled

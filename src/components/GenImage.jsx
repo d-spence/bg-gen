@@ -5,10 +5,9 @@ import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles({
   root: props => ({
-    width: props.settings.imageWidth,
-    height: props.settings.imageHeight,
+    width: props.settings.imageWidth + 10,
+    height: props.settings.imageHeight + 10,
     background: props.gradBg,
-    zIndex: 100,
   })
 });
 

@@ -6,11 +6,20 @@ import Button from'@material-ui/core/Button';
 import html2canvas from 'html2canvas';
 
 const SaveImage = ({ settings, imageRef }) => {
-  
+  const { imageWidth, imageHeight } = settings;
+  const saveConfig = {
+    scale: 1.0,
+    width: imageWidth,
+    height: imageHeight,
+    scrollX: -5,
+    scrollY: -5,
+    backgroundColor: null,
+  }
+
   const saveCanvas = (format) => {
-    const { imageWidth, imageHeight } = settings;
-    // console.log(imageRef.current);
-    html2canvas(imageRef.current, {scale: 1, width: imageWidth, height: imageHeight})
+    window.scroll(0,0); // scroll window to the top; fixes issue with output image
+    console.log(imageRef.current); // debug
+    html2canvas(imageRef.current, saveConfig)
       .then(canvas => {
         let link = document.createElement('a');
         link.setAttribute('download', `screenshot.${(format === 'jpeg' ? 'jpg' : format)}`);

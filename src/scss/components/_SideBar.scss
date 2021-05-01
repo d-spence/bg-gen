@@ -2,11 +2,12 @@
   height: 100vh;
   overflow-y: auto;
   background: $background-color;
-  border-right: 3px solid $primary-color;
+  border-right: $primary-color-border;
+  padding-bottom: 20px;
 
   &-banner {
     display: flex;
-    border-bottom: 3px solid $primary-color;
+    border-bottom: $primary-color-border;
   }
 
   &-title {

@@ -1,7 +1,7 @@
 .gen-display {
   display: flex;
   flex-flow: column nowrap;
-  height: 100vh;
+  height: 100%;
   overflow-y: auto;
 
   &-body {
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     padding: 15px;
-    box-shadow: 0px -5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px -5px 5px $shadow;
 
     span {
       width: 100%;

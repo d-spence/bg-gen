@@ -8,12 +8,12 @@ const useStyles = makeStyles({
     width: props.settings.imageWidth,
     height: props.settings.imageHeight,
     background: props.gradBg,
+    zIndex: 100,
   })
 });
 
 const GenImage = (props) => {
   const classes = useStyles(props);
-  console.log(props.imageRef);
 
   return (
     <Slide direction="up" in={props.transition} mountOnEnter>

@@ -1,5 +1,10 @@
 // Spacing
 $sidebar-width: 300px;
+$sidebar-width-ex: 400px;
+
+// Breakpoints
+$breakpoint-md: 800px;
+$breakpoint-lg: 1200px;
 
 // Colors
 $text-color-dark: #fff;
@@ -7,6 +12,10 @@ $text-color-light: #222;
 $primary-color: hsl(200, 75%, 70%);
 $secondary-color: hsl(160, 50%, 50%);
 $background-color: hsl(200, 20%, 95%);
+
+// Common rules
+$primary-color-border: 3px solid $primary-color;
+$shadow: rgba(0, 0, 0, 0.2);
 
 // Set text color based on bg
 @function set-text-color($color) {

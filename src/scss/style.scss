@@ -15,6 +15,7 @@ body {
   display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: $sidebar-width 1fr;
+  transition: 0.2s;
 }
 
 // Import component styles
@@ -24,4 +25,5 @@ body {
 @import 'components/GenImage';
 
 // Other imports
+@import 'mobile';
 @import 'utilities';

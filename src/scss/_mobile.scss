@@ -1,0 +1,35 @@
+// Media queries for medium breakpoint
+@media screen and (max-width: $breakpoint-md) {
+  .App {
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    height: 100%;
+    overflow-y: visible;
+    border: none;
+    border-bottom: $primary-color-border;
+    box-shadow: 0px 5px 5px $shadow;
+  }
+
+  .gen-display {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: clip;
+  }
+
+  .gen-image {
+    max-width: 95%;
+    max-height: 95%;
+    margin: 10px;
+  }
+}
+
+// Media queries for large breakpoint
+@media screen and (min-width: $breakpoint-lg) {
+  .App {
+    grid-template-rows: 1fr;
+    grid-template-columns: $sidebar-width-ex 1fr;
+  }
+}

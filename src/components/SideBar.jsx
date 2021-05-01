@@ -9,7 +9,7 @@ const SideBar = ({ settings, setSettings, gradBg, setGradBg,
   return (
     <div className="sidebar">
       <div className="sidebar-banner">
-        <Typography className="sidebar-title">BG-GEN</Typography>
+        <Typography variant="h5" className="sidebar-title">BG-GEN</Typography>
         <Typography className="sidebar-heading">Gradient Background</Typography>
       </div>
       <GenSettings

@@ -23,5 +23,14 @@
       width: 100%;
       text-align: center;
     }
+
+    a, a:visited {
+      color: set-text-color($primary-color);
+      text-decoration: none;
+    }
+
+    a:hover, a:active {
+      color: darken($primary-color, 20%);
+    }
   }
 }

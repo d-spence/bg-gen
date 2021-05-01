@@ -13,7 +13,7 @@ const GenDisplayArea = ({ settings, gradBg, transition, imageRef }) => {
         />
       </div>
       <footer className="gen-display-footer">
-        <span>© 2020, Dan Spencer</span>
+        <span>© 2020, <a href="https://dspence.net/" target="_blank" rel="noreferrer">Dan Spencer</a></span>
       </footer>
     </div>
   )
